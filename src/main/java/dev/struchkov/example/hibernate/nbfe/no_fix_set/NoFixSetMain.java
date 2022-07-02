@@ -28,7 +28,7 @@ public class NoFixSetMain {
                 .getResultList();
 
         final long finishTime = System.currentTimeMillis();
-        System.out.println("Performance: " + (startTime - finishTime));
+        System.out.println("Performance: " + (finishTime - startTime));
     }
 
 }
