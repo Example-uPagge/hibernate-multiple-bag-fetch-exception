@@ -22,7 +22,6 @@ public class FixProblem {
                         where p.id between :minId and :maxId""", Post.class)
                 .setParameter("minId", 1L)
                 .setParameter("maxId", 50L)
-                .setHint("PASS_DISTINCT_THROUGH", false)
                 .getResultList();
 
         posts = entityManager.createQuery("""
@@ -31,7 +30,6 @@ public class FixProblem {
                         left join fetch p.tags t
                         where p in :posts""", Post.class)
                 .setParameter("posts", posts)
-                .setHint("PASS_DISTINCT_THROUGH", false)
                 .getResultList();
 
         final long finishTime = System.currentTimeMillis();
