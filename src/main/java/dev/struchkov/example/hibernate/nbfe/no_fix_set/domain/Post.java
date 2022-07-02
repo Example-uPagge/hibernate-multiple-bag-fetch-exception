@@ -1,4 +1,4 @@
-package dev.struchkov.example.hibernate.nbfe.problem.domain;
+package dev.struchkov.example.hibernate.nbfe.no_fix_set.domain;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -11,8 +11,8 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -30,7 +30,7 @@ public class Post {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<PostComment> comments = new ArrayList<>();
+    private Set<PostComment> comments = new HashSet<>();
 
     @ManyToMany(
             cascade = {
@@ -43,7 +43,7 @@ public class Post {
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private List<Tag> tags = new ArrayList<>();
+    private Set<Tag> tags = new HashSet<>();
 
     public void addComment(PostComment postComment) {
         postComment.setPost(this);
