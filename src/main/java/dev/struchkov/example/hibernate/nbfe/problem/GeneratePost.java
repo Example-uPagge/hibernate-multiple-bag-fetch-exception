@@ -40,7 +40,7 @@ public class GeneratePost {
             final Post post = new Post();
             post.setTitle("Пост " + i);
 
-            for (int j = 0; j < 1000; j++) {
+            for (int j = 0; j < 10_000; j++) {
                 final PostComment postComment = new PostComment();
                 postComment.setReview("Комментарий " + j);
                 post.addComment(postComment);
