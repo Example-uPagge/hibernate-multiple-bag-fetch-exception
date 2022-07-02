@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
+@Table(name = "TAG")
 public class Tag {
 
     @Id

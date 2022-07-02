@@ -7,10 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "POSTCOMMENT")
 public class PostComment {
 
     @Id

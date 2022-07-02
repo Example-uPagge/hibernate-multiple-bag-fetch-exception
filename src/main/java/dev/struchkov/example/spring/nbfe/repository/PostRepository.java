@@ -10,13 +10,23 @@ import java.util.List;
 public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query("""
-            select distinct p
-            from Post p
-            left join fetch p.comments
-            left join fetch p.tags
-            where p.id between :minId and :maxId
-            """)
-    List<Post> findAllWithCommentsAndTags(
+        select distinct p
+        from Post p
+        left join fetch p.comments
+        where p.id between :minId and :maxId
+        """)
+    List<Post> findAllWithComments(
+            @Param("minId") long minId,
+            @Param("maxId") long maxId
+    );
+
+    @Query("""
+        select distinct p
+        from Post p
+        left join fetch p.tags
+        where p.id between :minId and :maxId
+        """)
+    List<Post> findAllWithTags(
             @Param("minId") long minId,
             @Param("maxId") long maxId
     );
