@@ -32,7 +32,7 @@ public class GeneratePost {
         entityManager.getTransaction().begin();
 
         final List<Tag> tags = entityManager.createQuery("SELECT t FROM Tag t where t.id IN :id", Tag.class)
-                .setParameter("id", LongStream.range(0, 19).boxed().collect(Collectors.toSet()))
+                .setParameter("id", LongStream.range(0, 20).boxed().collect(Collectors.toSet()))
                 .getResultList();
 
         for (int i = 0; i < 50; i++) {
